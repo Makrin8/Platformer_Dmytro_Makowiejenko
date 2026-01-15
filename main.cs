@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class jump : MonoBehaviour
 {
-    public float moveSpeed = 200;
+    public float moveSpeed = 1000;
     public float moveInput = 0;
     public float jumpForce = 300;
 
@@ -16,9 +16,6 @@ public class jump : MonoBehaviour
     private bool isRolling = false;
     private float rotationSpeed = 310f;
     private float currentRotation = 0f;
-    public Animator anim;
-    public bool isOpen = false;
-
 
 
 
@@ -26,6 +23,7 @@ public class jump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -37,31 +35,6 @@ public class jump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJump = true;
-        }
-        
-        if (moveInput != 0)
-        {
-        anim.SetFloat("IsMove", 1);
-        }
-        else{
-        anim.SetFloat("IsMove", -1);
-        }
-
-        if (moveInput < 0)
-        {
-        sprite.flipX = true;
-        }
-        else{
-        sprite.flipX = false;
-        }
-        
-        if (isJump)
-        {
-            anim.SetBool("IsJump", true);
-        }
-        else
-        {
-            anim.SetBool("IsJump", false);
         }
 
          if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -105,7 +78,4 @@ public class jump : MonoBehaviour
         }
     }
 
-
-  
 }
-

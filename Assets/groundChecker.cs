@@ -11,6 +11,7 @@ public class GroundChecker : MonoBehaviour
     {
         collider = GetComponent<BoxCollider2D>();
     }
+
     void Update()
     {
         //Empty
@@ -25,6 +26,4 @@ public class GroundChecker : MonoBehaviour
     {
         isGrounded = false;
     }
-
-
 }
